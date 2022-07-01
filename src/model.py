@@ -21,7 +21,7 @@ class ProjectManager:
         self.projects.append(p)
         return True
 
-    def remove_projects(self, name:str):
+    def remove_project(self, name:str):
         #get index of the project:
         delete_project = None
         for c, p in enumerate(self.projects):
@@ -37,7 +37,7 @@ class ProjectManager:
     def check_if_projects_exists(self, name:str):
         for pr in self.projects:
             if pr.name == name:
-                return True
+                return pr
         return False
 
     def print_out(self):
@@ -46,3 +46,13 @@ class ProjectManager:
 
     def list_of_dicts(self):
         return [vars(p) for p in self.projects]
+
+    def rename_project(self, name:str, new_name:str):
+        pr = self.check_if_projects_exists(name)
+        if pr:
+            pr.name = new_name
+            return pr.name
+        return False
+
+
+
