@@ -1,5 +1,4 @@
 import pytest
-import requests
 from model import ProjectManager
 def test_addProject():
     name="Testname"
